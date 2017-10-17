@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+   </head>
+   <body>
+     <div class = "title">
+       <h1> Bape </h1>
+     </div>
+      <table>
+        <div class="row banner menu">
+         <tbody>
+            {% for i in category %}
+               <tr>
+                  <td>{{ i.name }}</td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+       </div>
+      </table>
+
+   </body>
+</html>
