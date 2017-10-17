@@ -18,19 +18,27 @@ session = DBSession()
 @app.route('/')
 @app.route('/main')
 def showCategories(): #display database content
-    category = session.query(CatalogItem).all()
+    category = session.query(Categories).all()
     return render_template('showall.html',category = category) #add some styling
 
 @app.route('/newCatalogItem', methods=['GET','POST'])
 def HelloWorld(): #display database content
-    category = session.query(Categories).all()
+    category = session.query(CatalogItem).all()
     #items = session.query(Categories).all()
     output = ''
     for i in category:
         output += i.name
         output += '</br>'
     #return output
-    return render_template('showall.html',category = category)
+    return render_template('newCatalogItem.html',category = category)
+
+@app.route('/editCatalogItem')
+def editCatalogItem(): #display database content
+    return render_template('editCatalogItem.html')
+
+@app.route('/deleteCatalogItem')
+def deleteCatalogItem(): #display database content
+    return render_template('deleteCatalogItem.html')
 
 
 if __name__ == '__main__':
