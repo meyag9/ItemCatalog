@@ -19,18 +19,17 @@ session = DBSession()
 @app.route('/main')
 def showCategories(): #display database content
     category = session.query(Categories).all()
-    return render_template('showall.html',category = category) #add some styling
+    return render_template('showall.html', category = category) #add some styling
 
-@app.route('/newCatalogItem', methods=['GET','POST'])
-def HelloWorld(): #display database content
-    category = session.query(CatalogItem).all()
-    #items = session.query(Categories).all()
-    output = ''
-    for i in category:
-        output += i.name
-        output += '</br>'
-    #return output
-    return render_template('newCatalogItem.html',category = category)
+@app.route('/newCategory', methods=['GET','POST'])
+def newCategory(): #display database content
+    if request.method == 'POST':
+        newItem = Categories(user_id=1, name = request.form['name'])
+        session.add(newItem)
+        session.commit()
+        return redirect(url_for('showall'))
+    else:
+        return render_template('newCategory.html')
 
 @app.route('/editCatalogItem')
 def editCatalogItem(): #display database content

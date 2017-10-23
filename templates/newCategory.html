@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+   </head>
+   <body>
+     <div class = "title">
+       <h1>Bape</h1>
+     </div>
+      <table>
+
+          <div class="row banner menu">
+
+
+         </div>
+      <form action="{{url_for('newCategory' )}}" method = 'POST'>
+        <h2> Add new Category </h2>
+        <p>Name:</p>
+
+        <input type='text' size='30' name='name'>
+
+        <input type='submit' value='Create'>
+
+      </form>
+
+
+
+      </table>
+
+   </body>
+</html>
