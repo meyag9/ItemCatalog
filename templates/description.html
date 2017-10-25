@@ -10,21 +10,21 @@
       <table>
 
           <div class="row banner menu">
-            <a href = '{{ url_for('newCategory') }}'>
-              Add a Category</a>
-           <tbody>
-             <h2>Categories</h2>
-              {% for i in category %}
-                 <tr>
-                    <td><a href = '{{ url_for('itemDescription', item_name=i.name) }}' >
-                      {{i.name}} </td>
-                    </a>
 
+          </div>
+          <h3> Description of Item </h3>
+           <tbody>
+              {% for i in d %}
+                 <tr>
+
+                    <td>{{ i.name }}</td>
+                    <td>
+                      {{i.description}}</td>
                  </tr>
               {% endfor %}
            </tbody>
 
-         </div>
+
 
       </table>
 

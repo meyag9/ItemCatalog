@@ -51,7 +51,6 @@ class CatalogItem(Base):
             'description': self.description,
             'id': self.id,
             'price': self.price,
-
         }
 
 engine = create_engine('sqlite:///catalogwithusers.db')

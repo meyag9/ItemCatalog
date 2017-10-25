@@ -27,9 +27,19 @@ def newCategory(): #display database content
         newItem = Categories(user_id=1, name = request.form['name'])
         session.add(newItem)
         session.commit()
-        return redirect(url_for('showall'))
+        return redirect(url_for('showCategories'))
     else:
         return render_template('newCategory.html')
+
+@app.route('/<string:item_name>/description')
+# display information of a item that was clicked
+def itemDescription(item_name):
+    itemToDisplay = session.query(
+        CatalogItem).filter_by(name=item_name)
+    return render_template('description.html', d=itemToDisplay)
+
+
+
 
 @app.route('/editCatalogItem')
 def editCatalogItem(): #display database content
